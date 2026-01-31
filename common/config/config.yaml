@@ -1,0 +1,18 @@
+Mysql:
+  Host: "127.190.231.18"
+  Port: 3306
+  User: "root"
+  Password: "4ay1nkal3u8ed77y"
+  Database: "medi-biz"
+
+Redis:
+  Host: "115.190.231.18"
+  Port: 6379
+  Password: "4ay1nkal3u8ed77y"
+  Database: 0
+
+AliPay:
+  AppId: "111111111111"
+  PrivateKey: "MIIEowIBAAKCAQEA3gJIw7Cm4"
+  NotifyUrl: "http://notifyurl.top/notify"
+  ReturnUrl: ""

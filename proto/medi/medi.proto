@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package medi;
+
+option go_package = "./proto/medi/medi";
+
+message DoctorAddReq {
+  string Name = 1;
+  string Title = 2;
+  string Skill = 3;
+  int64 DepartmentID = 4;
+  float ServicePrice = 5;
+}
+
+message DoctorAddResp {
+  int64 Id = 1;
+}
+
+message ScheduleAddReq {
+  int64 PatientID = 1;
+  int64 DoctorID = 2;
+  int64 DepartmentID = 3;
+  string ScheduleDate = 4;
+  string ScheduleTime = 5;
+}
+
+message ScheduleAddResp {
+  int64 Id = 1;
+}
+
+message DoctorListReq {
+  int64 page = 1;
+  int64 size = 2;
+  string name = 3;
+}
+
+message DoctorListResp {
+  repeated DoctorListData list = 1;
+  int64 total = 2;
+}
+
+message DoctorListData {
+  string Name = 1;
+  string Title = 2;
+  string Skill = 3;
+  int64 DepartmentID = 4;
+  float ServicePrice = 5;
+}
+
+message AppointmentAddReq {
+  int64 PatientID = 1;
+  int64 DoctorID = 2;
+  int64 DepartmentID = 3;
+  int64 ScheduleID = 4;
+  string ScheduleDate = 5;
+  string ScheduleTime = 6;
+}
+
+message AppointmentAddResp {
+  string appointment_no = 1;
+  string seral_no = 2;
+  string payUrl = 3;
+}
+
+service Medi {
+  rpc DoctorAdd(DoctorAddReq) returns (DoctorAddResp);
+  rpc ScheduleAdd(ScheduleAddReq) returns (ScheduleAddResp);
+  rpc DoctorList(DoctorListReq) returns (DoctorListResp);
+  rpc AppointmentAdd(AppointmentAddReq) returns (AppointmentAddResp);
+}
