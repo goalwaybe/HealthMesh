@@ -1,1 +1,0 @@
-初始化 npx degit dcloudio/uni-preset-vue#vite-ts my-patient-app
